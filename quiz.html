@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        #quiz {
+            max-width: 500px;
+            margin: 0 auto;
+            text-align: left;
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        .feedback {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="quiz">
+        <div class="question">
+            <h2>Question 1:</h2>
+            <p>What is the capital of France?</p>
+            <input type="text" id="answer1">
+        </div>
+        <div class="question">
+            <h2>Question 2:</h2>
+            <p>What is the capital of Japan?</p>
+            <select id="answer2">
+                <option value="">Select an answer</option>
+                <option value="tokyo">Tokyo</option>
+                <option value="osaka">Osaka</option>
+                <option value="kyoto">Kyoto</option>
+            </select>
+        </div>
+        <button onclick="submitAnswers()">Submit Answers</button>
+        <div id="feedback" class="feedback"></div>
+    </div>
+
+    <script>
+        function submitAnswers() {
+            const answer1 = document.getElementById('answer1').value.toLowerCase();
+            const answer2 = document.getElementById('answer2').value.toLowerCase();
+
+            let feedback = '';
+
+            if (answer1 === 'paris') {
+                feedback += 'Question 1: Correct! Paris is the capital of France.<br>';
+            } else {
+                feedback += 'Question 1: Incorrect. The capital of France is Paris.<br>';
+            }
+
+            if (answer2 === 'tokyo') {
+                feedback += 'Question 2: Correct! Tokyo is the capital of Japan.';
+            } else {
+                feedback += 'Question 2: Incorrect. The capital of Japan is Tokyo.';
+            }
+
+            document.getElementById('feedback').innerHTML = feedback;
+        }
+    </script>
+</body>
+</html>
